@@ -31,7 +31,10 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - uses: actions/checkout@v2
-    - name: npm install and build webpack
+      - uses: actions/upload-artifact@master
+        with:
+          name: webpack artifacts
+          path: public/
       run: |
         npm install
         npm run build
